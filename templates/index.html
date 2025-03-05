@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Attrition Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        label {
+            font-size: 13px;
+            text-align: left;
+            display: block;
+            margin-top: 4px;
+        }
+        input, select {
+            width: 100%;
+            padding: 5px;
+            margin: 3px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        button {
+            width: 100%;
+            padding: 8px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Employee Attrition Prediction</h2>
+        <form action="/predict" method="post">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="Age" required>
+
+            <label for="distance">Distance from Home (km):</label>
+            <input type="number" id="distance" name="DistanceFromHome" required>
+
+            <label for="years">Years at Company:</label>
+            <input type="number" id="years" name="YearsAtCompany" required>
+
+            <label for="env_satisfaction">Environment Satisfaction (1-4):</label>
+            <input type="number" id="env_satisfaction" name="EnvironmentSatisfaction" min="1" max="4" required>
+
+            <label for="job_satisfaction">Job Satisfaction (1-4):</label>
+            <input type="number" id="job_satisfaction" name="JobSatisfaction" min="1" max="4" required>
+
+            <label for="marital_status">Marital Status:</label>
+            <select id="marital_status" name="MaritalStatus" required>
+                <option value="Single">Single</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+            </select>
+
+            <label for="income">Monthly Income ($):</label>
+            <input type="number" id="income" name="MonthlyIncome" required>
+
+            <label for="work_life_balance">Work-Life Balance (1-4):</label>
+            <input type="number" id="work_life_balance" name="WorkLifeBalance" min="1" max="4" required>
+
+            <label for="num_companies">Number of Companies Worked:</label>
+            <input type="number" id="num_companies" name="NumCompaniesWorked" required>
+
+            <label for="overtime">OverTime:</label>
+            <select id="overtime" name="OverTime" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction %}
+            <div class="result">Prediction: {{ prediction }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
