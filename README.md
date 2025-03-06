@@ -19,6 +19,7 @@ This project aims to predict employee attrition using machine learning based on 
 ## Dataset
 The dataset includes employee-related attributes such as age, income, job satisfaction, and work-life balance.
 
+**Dataset link:** https://www.kaggle.com/code/faressayah/ibm-hr-analytics-employee-attrition-performance
 - **Raw Dataset:** `Employee_attrition_dataset.csv` (all features)
 - **Preprocessed Dataset:** `HR_New_Columns_Excel.xlsx` (selected features based on correlation analysis)
 
